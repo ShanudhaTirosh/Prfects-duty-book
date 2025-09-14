@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prefect Duty Book - Complete Cover Spread</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --primary-green: #2E8B57;
+            --secondary-green: #228B22;
+            --accent-gold: #fbbf24;
+            --dark-green: #1B5E3F;
+            --light-green: #E8F5E8;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --background-white: #ffffff;
+            --border-gray: #d1d5db;
+            --border-color: #D4AF37;
+            --spine-width: 10mm;
+            --cover-width: 143.5mm; /* (297mm - 10mm spine) / 2 */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: none;
+            margin: 0;
+            padding: 0;
+            width: 297mm;
+            height: 210mm;
+            overflow: hidden;
+        }
+
+        /* Book Cover Container */
+        .book-cover-spread {
+            width: 297mm; /* A4 landscape width */
+            height: 210mm; /* A4 landscape height */
+            display: flex;
+            margin: 0;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            position: relative;
+            background: var(--background-white);
+        }
+
+        /* Back Cover Styles */
+        .back-cover {
+            width: var(--cover-width);
+            height: 100%;
+            background: var(--background-white);
+            border: 2px solid var(--primary-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                transparent 0%, 
+                rgba(59, 130, 246, 0.03) 25%, 
+                transparent 50%, 
+                rgba(59, 130, 246, 0.03) 75%, 
+                transparent 100%);
+            background-size: 40px 40px;
+            z-index: 1;
+        }
+
+        .back-page-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            padding: 12mm;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .back-header-section {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .back-logo-container {
+            position: absolute;
+            top: -5px;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--background-white), var(--background-white));
+        }
+
+        .back-logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .back-logo-fallback {
+            color: var(--primary-blue);
+            font-size: 20px;
+            display: none;
+        }
+
+        .back-school-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .back-school-subtitle {
+            font-size: 10px;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .back-main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .back-duty-badge {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 20px rgba(30, 58, 138, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-duty-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .back-info-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid var(--border-gray);
+            border-radius: 15px;
+            padding: 25px;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .back-info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(209, 213, 219, 0.5);
+        }
+
+        .back-info-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .back-info-label {
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .back-info-value {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .back-student-name {
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 16px;
+        }
+
+        .back-footer-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-academic-year {
+            font-size: 11px;
+            color: var(--text-light);
+            font-weight: 500;
+            padding: 8px 15px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .back-decorative-line {
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--accent-gold) 25%, 
+                var(--primary-blue) 50%, 
+                var(--accent-gold) 75%, 
+                transparent 100%);
+            border-radius: 2px;
+            margin: 15px 0;
+        }
+
+        /* Spine Styles */
+        .spine {
+            width: var(--spine-width);
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-green) 0%, var(--dark-green) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        .spine-content {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .spine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent 0px,
+                rgba(255, 215, 0, 0.1) 10px,
+                transparent 20px
+            );
+        }
+
+        /* Front Cover Styles */
+        .front-cover {
+            width: 148mm;
+            height: 100%;
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border: 3px solid var(--primary-green);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .front-cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(46, 139, 87, 0.05) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .front-header-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: white;
+            padding: 15mm 10mm;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .front-header-section::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 20px;
+            background: var(--accent-gold);
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+        }
+
+        .front-school-logo {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .front-school-logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .front-school-logo i {
+            color: var(--primary-green);
+            font-size: 28px;
+        }
+
+        .front-school-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .front-document-title {
+            font-size: 12px;
+            font-weight: 500;
+            opacity: 0.95;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .front-main-content {
+            flex: 1;
+            padding: 18mm 15mm;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .front-title-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .front-duty-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            letter-spacing: 1px;
+        }
+
+        .front-duty-subtitle {
+            font-size: 16px;
+            color: var(--dark-green);
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .front-student-info {
+            background: rgba(46, 139, 87, 0.08);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(46, 139, 87, 0.1);
+        }
+
+        .front-info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding: 10px 0;
+            border-bottom: 1px dotted rgba(46, 139, 87, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .front-info-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .front-info-row:hover {
+            background-color: rgba(46, 139, 87, 0.05);
+            border-radius: 6px;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        .front-info-label {
+            font-weight: 600;
+            color: var(--dark-green);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            flex: 0 0 auto;
+        }
+
+        .front-info-label i {
+            margin-right: 10px;
+            color: var(--accent-gold);
+            width: 18px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .front-info-value {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 14px;
+            text-align: right;
+            flex: 1;
+        }
+
+        .front-decorative-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .front-corner-decoration {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--accent-gold);
+            opacity: 0.7;
+        }
+
+        .front-corner-decoration.top-left {
+            top: 12px;
+            left: 12px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .front-corner-decoration.top-right {
+            top: 12px;
+            right: 12px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .front-corner-decoration.bottom-left {
+            bottom: 12px;
+            left: 12px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .front-corner-decoration.bottom-right {
+            bottom: 12px;
+            right: 12px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .front-footer-section {
+            background: var(--light-green);
+            border-top: 2px solid var(--primary-green);
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .front-academic-year {
+            color: var(--dark-green);
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .front-year-highlight {
+            color: var(--primary-green);
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* Shared Icon Styles */
+        .icon {
+            margin-right: 8px;
+            color: var(--secondary-blue);
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            
+            .book-cover-spread {
+                width: calc(296mm + var(--spine-width)) !important;
+                height: 210mm !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+            
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            body {
+                padding: 10px;
+            }
+            
+            .book-cover-spread {
+                transform: scale(0.8);
+                transform-origin: center;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .book-cover-spread {
+                transform: scale(0.6);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .book-cover-spread {
+                transform: scale(0.4);
+            }
+        }
+
+        /* Animations - Removed for print version */
+        .book-cover-spread {
+            /* animation: fadeIn 0.8s ease-in-out; */
+        }
+
+        /* @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        } */
+    </style>
+</head>
+<body>
+    <div class="book-cover-spread">
+        <!-- Back Cover -->
+        <div class="back-cover">
+            <div class="back-page-content">
+                <!-- Header Section -->
+                <div class="back-header-section">
+                    <div class="back-logo-container">
+                        <img src="1.png" alt="Sri Kalyanathissa College Logo" class="back-logo-image" id="backSchoolLogo">
+                        <i class="fas fa-graduation-cap back-logo-fallback" id="backLogoFallback"></i>
+                    </div>
+                    <h1 class="back-school-name">Sri Kalyanathissa College</h1>
+                    <p class="back-school-subtitle">Excellence in Education</p>
+                    <div class="back-decorative-line"></div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="back-main-content">
+                    <div class="back-duty-badge">
+                        <i class="fas fa-shield-alt icon"></i>
+                        Prefect Duty Inspection
+                    </div>
+
+                    <div class="back-info-card">
+                        <div class="back-info-row">
+                            <span class="back-info-label">
+                                <i class="fas fa-user icon"></i>Student Name
+                            </span>
+                            <span class="back-info-value back-student-name">P. Shanudha Tirosh</span>
+                        </div>
+                        
+                        <div class="back-info-row">
+                            <span class="back-info-label">
+                                <i class="fas fa-layer-group icon"></i>Grade
+                            </span>
+                            <span class="back-info-value">11-C</span>
+                        </div>
+                        
+                        <div class="back-info-row">
+                            <span class="back-info-label">
+                                <i class="fas fa-crown icon"></i>Position
+                            </span>
+                            <span class="back-info-value">Senior Prefect</span>
+                        </div>
+                        
+                        <div class="back-info-row">
+                            <span class="back-info-label">
+                                <i class="fas fa-calendar-alt icon"></i>Academic Year
+                            </span>
+                            <span class="back-info-value">2024-2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer Section -->
+                <div class="back-footer-section">
+                    <div class="back-decorative-line"></div>
+                    <div class="back-academic-year">
+                        <i class="fas fa-book icon"></i>
+                        Official Duty Record Book
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spine -->
+        <div class="spine">
+            <div class="spine-content">
+                PREFECT DUTY BOOK • 2024-2025
+            </div>
+        </div>
+
+        <!-- Front Cover -->
+        <div class="front-cover">
+            <!-- Decorative Elements -->
+            <div class="front-decorative-elements">
+                <div class="front-corner-decoration top-left"></div>
+                <div class="front-corner-decoration top-right"></div>
+                <div class="front-corner-decoration bottom-left"></div>
+                <div class="front-corner-decoration bottom-right"></div>
+            </div>
+
+            <!-- Header Section -->
+            <div class="front-header-section">
+                <div class="front-school-logo">
+                    <img src="1.png" alt="Sri Kalyanathissa College Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <i class="fas fa-graduation-cap" style="display: none;"></i>
+                </div>
+                <div class="front-school-name">Sri Kalyanathissa College</div>
+                <div class="front-document-title">Official Document</div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="front-main-content">
+                <div class="front-title-section">
+                    <h1 class="front-duty-title">PREFECT DUTY</h1>
+                    <h2 class="front-duty-subtitle">Inspection Book</h2>
+                </div>
+
+                <div class="front-student-info">
+                    <div class="front-info-row">
+                        <span class="front-info-label">
+                            <i class="fas fa-user"></i>
+                            Student Name
+                        </span>
+                        <span class="front-info-value">P. Shanudha Tirosh</span>
+                    </div>
+                    
+                    <div class="front-info-row">
+                        <span class="front-info-label">
+                            <i class="fas fa-graduation-cap"></i>
+                            Grade
+                        </span>
+                        <span class="front-info-value">11-C</span>
+                    </div>
+                    
+                    <div class="front-info-row">
+                        <span class="front-info-label">
+                            <i class="fas fa-shield-alt"></i>
+                            Position
+                        </span>
+                        <span class="front-info-value">Senior Prefect</span>
+                    </div>
+                    
+                    <div class="front-info-row">
+                        <span class="front-info-label">
+                            <i class="fas fa-clipboard-check"></i>
+                            Duty Type
+                        </span>
+                        <span class="front-info-value">Prefect Duty Inspection</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Section -->
+            <div class="front-footer-section">
+                <div class="front-academic-year">
+                    Academic Year <span class="front-year-highlight">2024-2025</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle image loading and fallback for back cover
+            const backLogoImage = document.getElementById('backSchoolLogo');
+            const backLogoFallback = document.getElementById('backLogoFallback');
+            
+            if (backLogoImage && backLogoFallback) {
+                backLogoImage.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    backLogoFallback.style.display = 'flex';
+                });
+                
+                backLogoImage.addEventListener('load', function() {
+                    this.style.display = 'block';
+                    backLogoFallback.style.display = 'none';
+                });
+                
+                if (backLogoImage.complete && backLogoImage.naturalHeight !== 0) {
+                    backLogoImage.style.display = 'block';
+                    backLogoFallback.style.display = 'none';
+                } else {
+                    backLogoImage.style.display = 'none';
+                    backLogoFallback.style.display = 'flex';
+                }
+            }
+
+            // Handle image loading and fallback for front cover
+            const frontLogo = document.querySelector('.front-school-logo img');
+            const frontLogoFallback = document.querySelector('.front-school-logo i');
+            
+            if (frontLogo && frontLogoFallback) {
+                frontLogo.addEventListener('error', function() {
+                    this.style.display = 'none';
+                    frontLogoFallback.style.display = 'flex';
+                });
+                
+                if (frontLogo.complete && frontLogo.naturalHeight !== 0) {
+                    frontLogo.style.display = 'block';
+                    frontLogoFallback.style.display = 'none';
+                } else {
+                    frontLogo.style.display = 'none';
+                    frontLogoFallback.style.display = 'flex';
+                }
+            }
+
+            // Print functionality with Ctrl+P
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'p') {
+                    e.preventDefault();
+                    window.print();
+                }
+            });
+
+            // Enhanced hover effects for info rows
+            const allInfoRows = document.querySelectorAll('.back-info-row, .front-info-row');
+            allInfoRows.forEach(row => {
+                row.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(8px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                
+                row.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+
+            // Logo click interactions
+            const allLogos = document.querySelectorAll('.back-logo-container, .front-school-logo');
+            allLogos.forEach(logo => {
+                logo.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95) rotate(5deg)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1) rotate(0deg)';
+                    }, 200);
+                });
+            });
+
+            // Double-click to print
+            const coverSpread = document.querySelector('.book-cover-spread');
+            coverSpread.addEventListener('dblclick', function() {
+                if (confirm('Would you like to print this book cover spread?')) {
+                    window.print();
+                }
+            });
+
+            // Subtle parallax effect
+            document.addEventListener('mousemove', function(e) {
+                const decorativeElements = document.querySelectorAll('.front-corner-decoration');
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                
+                decorativeElements.forEach((element, index) => {
+                    const speed = (index + 1) * 0.3;
+                    const x = (mouseX - 0.5) * speed;
+                    const y = (mouseY - 0.5) * speed;
+                    element.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
